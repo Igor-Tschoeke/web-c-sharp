@@ -50,5 +50,17 @@ namespace View.Controllers
             ViewBag.Estoque = estoque;
             return View();
         }
+
+        public ActionResult Update(int id, string nome, int quantidade, decimal valor)
+        {
+            Estoque estoque = new Estoque();
+            estoque.Id = id;
+            estoque.Nome = nome;
+            estoque.Quantidade = quantidade;
+            estoque.Valor = valor;
+
+            bool alterou = repositorio.Atualizar(estoque);
+            return RedirectToAction("Index");
+        }
     }
 }

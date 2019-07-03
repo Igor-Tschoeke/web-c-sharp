@@ -1,0 +1,6 @@
+T:\Documentos\GitHub\exemplo-web\web-c-sharp\exemploWeb01\Model\bin\Debug\Model.dll
+T:\Documentos\GitHub\exemplo-web\web-c-sharp\exemploWeb01\Model\bin\Debug\Model.pdb
+T:\Documentos\GitHub\exemplo-web\web-c-sharp\exemploWeb01\Model\obj\Debug\Model.csprojAssemblyReference.cache
+T:\Documentos\GitHub\exemplo-web\web-c-sharp\exemploWeb01\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+T:\Documentos\GitHub\exemplo-web\web-c-sharp\exemploWeb01\Model\obj\Debug\Model.dll
+T:\Documentos\GitHub\exemplo-web\web-c-sharp\exemploWeb01\Model\obj\Debug\Model.pdb

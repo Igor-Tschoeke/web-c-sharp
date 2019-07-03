@@ -20,7 +20,7 @@ namespace Repository
         {
             //Insere no banco de dados
             SqlCommand comando = conexao.Conectar();
-            comando.CommandText = @"INSERT INTO estoques(nome, valor, quantidade)VALUS(@NOME,@VALOR,@QUANTIDADE)";
+            comando.CommandText = @"INSERT INTO estoques(nome, valor, quantidade)VALUES(@NOME,@VALOR,@QUANTIDADE)";
             //Substitui as variaveis do comando acima
             comando.Parameters.AddWithValue("@NOME", estoque.Nome);
             comando.Parameters.AddWithValue("@VALOR", estoque.Valor);
@@ -37,7 +37,7 @@ namespace Repository
         public List<Estoque> ObterTodos(string busca)
         {
             SqlCommand comando = conexao.Conectar();
-            comando.CommandText = @"SELCT * FROM estoques WHERE nome LIKE @NOME";
+            comando.CommandText = @"SELECT * FROM estoques WHERE nome LIKE @BUSCA";
             busca = $"%{busca}%";
             comando.Parameters.AddWithValue("@BUSCA", busca);
 
@@ -56,9 +56,57 @@ namespace Repository
                 estoque.Valor = Convert.ToDecimal(linha["Valor"]);
                 estoque.Quantidade = Convert.ToInt32(linha["Quantidade"]);
                 estoques.Add(estoque);
-
             }
-            
+            return estoques;
+        }
+
+        public bool Apagar(int id)
+        {
+            SqlCommand comando = conexao.Conectar();
+            comando.CommandText = @"DELETE FROM estoques WHERE id = @ID";
+            comando.Parameters.AddWithValue(@"ID", id);
+
+            int quantidadeAfetada = comando.ExecuteNonQuery();
+            comando.Connection.Close();
+
+            return quantidadeAfetada == 1;
+        }
+
+        public Estoque ObterPeloid(int id)
+        {
+            SqlCommand comando = conexao.Conectar();
+            comando.CommandText = @"SELECT * FROM estoques WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            if (tabela.Rows.Count == 1)
+            {
+                DataRow linha = tabela.Rows[0];
+                Estoque estoque = new Estoque();
+                estoque.Id = Convert.ToInt32(linha["Id"]);
+                estoque.Nome = linha["Nome"].ToString();
+                estoque.Quantidade = Convert.ToInt32(linha["Quantidade"]);
+                estoque.Valor = Convert.ToDecimal(linha["Valor"]);
+                return estoque;
+            }
+            return null;
+        }
+
+        public bool Atualizar(Estoque estoque)
+        {
+            SqlCommand comando = conexao.Conectar();
+            comando.CommandText = @"UPDATE estoques SET nome = @NOME, quantidade = @QUANTIDADE, valor = @VALOR WHERE id = @ID";
+            comando.Parameters.AddWithValue("@NOME", estoque.Nome);
+            comando.Parameters.AddWithValue("@QUANTIDADE", estoque.Quantidade);
+            comando.Parameters.AddWithValue("@VALOR", estoque.Valor);
+            comando.Parameters.AddWithValue("@ID", estoque.Id);
+
+            int quantidadeAfetada = comando.ExecuteNonQuery();
+            comando.Connection.Close();
+            return quantidadeAfetada == 1;
+
         }
         
 

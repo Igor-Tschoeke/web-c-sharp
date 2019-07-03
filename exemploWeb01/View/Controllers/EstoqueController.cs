@@ -43,5 +43,12 @@ namespace View.Controllers
             repositorio.Apagar(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Editar(int id)
+        {
+            Estoque estoque = repositorio.ObterPeloid(id);
+            ViewBag.Estoque = estoque;
+            return View();
+        }
     }
 }

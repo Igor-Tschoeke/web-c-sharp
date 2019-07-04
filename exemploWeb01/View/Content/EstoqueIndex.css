@@ -1,3 +1,25 @@
 ﻿body {
-    background-color:cadetblue;
+    background-color:azure
+}
+table{
+    width:90%;
+    border:ridge gray;
+}
+/*Coluna do cabeçalho e rodapé*/
+th{
+    background-color:cornflowerblue;
+    
+}
+/*Cada linha terá 30px de altura*/
+tr{
+    height:30px;
+}
+tr, th{
+    border:4px hidden blue;
+   
+    
+}
+/*Quando usuario passar o mouse e muda a cor*/
+tr:hover{
+    background-color:gainsboro;
 }

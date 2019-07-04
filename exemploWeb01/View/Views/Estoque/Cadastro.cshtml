@@ -8,32 +8,33 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/EstoqueCadastro.css" />
     <title>Cadastro</title>
 </head>
 <body>
-    <div> 
-        <a href="/estoque/">Lista de Estoques</a>
+    <div class="div-titulo"> 
+        <a href="/estoque/" class="titulo">Lista de Estoques</a>
     </div>
     
 
     <form action="/estoque/store" method="post">
-        <div>
+        <div class="div-campo">
             <label for="campo-nome">Nome</label>
             <input type="text" name="nome"
-                   id="campo-nome" />
+                   id="campo-nome" class="campo"/>
         </div>
-        <div>
+        <div class="div-campo">
             <label for="campo-quantidade">Quantidade</label>
             <input type="text" name="quantidade"
-                   id="campo-quantidade" />
+                   id="campo-quantidade" class="campo" />
         </div>
-        <div>
+        <div class="div-campo">
             <label for="campo-valor">Valor</label>
             <input type="text" name="valor"
-                   id="campo-valor" ; />
+                   id="campo-valor"class="campo" />
         </div>
 
-        <button type="submit">Salvar</button>
+        <button type="submit" class="botao">Salvar</button>
         </form>
 </body>
 </html>

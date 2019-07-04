@@ -1,25 +1,69 @@
-﻿body {
-    background-color:azure
+﻿﻿body {
+    background-color: azure;
+    font-family: 'Source Sans Pro', sans-serif;
 }
-table{
-    width:90%;
-    border:ridge gray;
+
+table {
+    width: 90%;
+    border: ridge cornflowerblue;
+    margin: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 /*Coluna do cabeçalho e rodapé*/
 th{
-    background-color:cornflowerblue;
-    
+    background-color: cornflowerblue;
 }
 /*Cada linha terá 30px de altura*/
 tr{
-    height:30px;
+    height: 30px;
 }
-tr, th{
-    border:4px hidden blue;
-   
-    
+
+tr,th{
+    border: 4px hidden blue;
 }
-/*Quando usuario passar o mouse e muda a cor*/
+    /*Quando usuario passar o mouse e muda a cor*/
 tr:hover{
-    background-color:gainsboro;
+        background-color: gainsboro;
+}
+
+/*Para cada elemento filho da tr em que o índice seja par, será aplicado cor cinza*/
+tr:nth-child(even){
+    background-color: floralwhite;
+}
+
+/*Editar aparência botão*/
+#botao-cadastro {
+    background-color: cornflowerblue;
+    color: black;
+    padding: 4.5px;
+    border-radius: 5px;
+    text-decoration: wavy;
+    font-weight: normal;
+    cursor: pointer;
+    margin-left:1.50%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#botao-editar {
+    background-color: cornflowerblue;
+    color: black;
+    padding: 2px;
+    border-radius: 2px;
+    text-decoration: wavy;
+    font-weight: normal;
+    cursor: pointer;
+    margin-left: 2.79%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#botao-apagar {
+    background-color: cornflowerblue;
+    color: black;
+    padding: 2px;
+    border-radius: 2px;
+    text-decoration: wavy;
+    font-weight: normal;
+    cursor: pointer;
+    margin-left: 2.79%;
+    font-family: 'Source Sans Pro', sans-serif;
 }
